@@ -1,0 +1,86 @@
+"""def rev_str(s):
+    if len(s) <= 1:
+        return s
+    else:
+        return s[-1] + rev_str(s[:-1])
+    
+if __name__ == '__main__':
+    print(rev_str('orange'))
+    print(rev_str('Have a good day'))
+    print(rev_str('Korea, Japan'))"""
+
+"""def get_integer_input():
+    while True:
+        user_input = input("Enter integers separated by spaces (type 'done' to finish): ")
+        if user_input.lower() == 'done':
+            return None
+        try:
+            integer_list = [int(x) for x in user_input.split()]
+            if len(integer_list) < 2:
+                print("must enter more than one integer")
+            else:
+                return integer_list
+        except ValueError:
+            print("must enter integers separated by spaces")
+
+def calculate_list_sum_recursive(int_list):
+    if not int_list:
+        return 0
+    else:
+        return int_list[0] + calculate_list_sum_recursive(int_list[1:])
+
+if __name__ == '__main__':
+    total_sum = 0
+
+    while True:
+        integers = get_integer_input()
+        if integers is None:
+            print("program terminated. good bye !!")
+            break
+        
+        total_sum += calculate_list_sum_recursive(integers)
+
+    print("The sum of the input integers is:", total_sum)"""
+
+
+"""import re
+
+def extract_emails(text):
+    email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,7}\b'
+    emails = re.findall(email_pattern, text)
+    return emails
+
+if __name__ == '__main__':
+    input_text = input("텍스트를 입력하세요: ")
+    extracted_emails = extract_emails(input_text)
+    
+    if extracted_emails:
+        print("추출된 이메일 주소:")
+        for email in extracted_emails:
+            print(email)
+    else:
+        print("이메일 주소가 발견되지 않았습니다.")"""
+
+import re
+
+def extract_revisions(filename):
+    with open(filename, 'r') as file:
+        revision_numbers = []
+        for line in file:
+            match = re.search(r'New Revision : (\d+)', line)
+            if match:
+                revision_number = int(match.group(1))
+                revision_numbers.append(revision_number)
+    
+    return revision_numbers
+
+if __name__ == '__main__':
+    filename = 'c:\Users\Administrator\Desktop\서연\mbox.txt'
+    
+    revisions = extract_revisions(filename)
+    
+    if revisions:
+        average_revision = sum(revisions) / len(revisions)
+        print("평균 리비전 번호:", average_revision)
+    else:
+        print("해당 형식의 라인이 파일에서 발견되지 않았습니다.")
