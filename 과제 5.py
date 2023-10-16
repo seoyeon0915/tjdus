@@ -1,7 +1,6 @@
 import tkinter as tk
 import sqlite3
 
-# SQLite 데이터베이스 연결 및 테이블 생성
 con = sqlite3.connect("md+202310630.db")
 cur = con.cursor()
 cur.execute('''CREATE TABLE IF NOT EXISTS userData (
@@ -20,9 +19,6 @@ def insert_data():
     cur.execute("INSERT INTO userData (사용자ID, 사용자이름, 이메일, 출생연도) VALUES (?, ?, ?, ?)",
                 (사용자ID, 사용자이름, 이메일, 출생연도))
     con.commit()
-
-# 이하 코드는 이전과 동일합니다.
-
 
 def fetch_data():
     입력된_사용자ID = entry_사용자ID.get()
