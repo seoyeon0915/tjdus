@@ -24,7 +24,7 @@ if __name__ == '__main__':
 
     print("테스트 통과")'''
 
-from collections import deque
+'''from collections import deque
 
 def solution(prices):
     n = len(prices)  
@@ -37,7 +37,7 @@ def solution(prices):
             j = stack.pop()  
             result[j] = i - j  
         stack.append(i)
-        
+
     while stack:
         j = stack.pop()
         result[j] = n - j - 1
@@ -47,4 +47,28 @@ def solution(prices):
 if __name__ == '__main__':
     prices = [1000, 2000, 3000, 2000, 3000]
     result = solution(prices)
-    print(result)
+    print(result)'''
+
+'''from collections import Counter
+
+def count_words_in_file(file_path):
+    with open(file_path, 'r') as file:
+        text = file.read().lower()  
+        words = text.split()
+        word_counts = Counter(words)  
+    return word_counts
+
+def compare_word_counts(file1_counts, file2_counts):
+    common_words = file1_counts & file2_counts 
+    print("공통된 단어와 각 파일에서의 빈도:")
+    for word, count in common_words.items():
+        print(f"'{word}': 파일1 - {file1_counts[word]}, 파일2 - {file2_counts[word]}")
+
+if __name__ == "__main":
+    file1_path = "file1.txt"
+    file2_path = "file2.txt"
+
+    file1_counts = count_words_in_file(file1_path)
+    file2_counts = count_words_in_file(file2_path)
+
+    compare_word_counts(file1_counts, file2_counts)'''
