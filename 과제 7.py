@@ -14,16 +14,12 @@ print(min_set_menu_price)'''
 unique_remainders = len(set(remainders))
 print(unique_remainders)'''
 
-# 주어진 문자열
 text = "This is a more advanced comprehension exercise to practice"
 
-# 문자열을 공백으로 분리하여 단어 리스트 생성
 words = text.split()
 
-# 길이가 5 이상인 단어의 알파벳을 역순으로 만들어 리스트 생성
 reversed_words = [word[::-1] for word in words if len(word) >= 5]
 
-# 결과 출력
 print(reversed_words)
 
 
